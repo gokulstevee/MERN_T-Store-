@@ -27,9 +27,13 @@ router.post(
   createProduct
 );
 
-//read Product
+//get Product
 router.get("/product/:productId", getProduct);
 router.get("/product/photo/:productId", photo);
+
+//getAllProduct
+router.get("/products", getAllProducts);
+router.get("/products/categories", getAllUniqueCategories);
 
 //delete Product
 router.delete(
@@ -49,8 +53,5 @@ router.put(
   updateProduct
 );
 
-//getAllProduct
-router.get("/products", getAllProducts);
-router.get("/products/categories", getAllUniqueCategories);
 
 module.exports = router;

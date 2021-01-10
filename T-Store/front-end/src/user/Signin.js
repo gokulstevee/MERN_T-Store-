@@ -111,10 +111,7 @@ const Signin = () => {
     );
   };
   return (
-    <Base
-      title="Login"
-      description="Here you go to collect amazing T-Shirts"
-    >
+    <Base title="Login" description="Here you go to collect amazing T-Shirts">
       <div className="authform_form-width text-center">
         {loadingMessage()}
         {errorMessage()}

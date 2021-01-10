@@ -32,7 +32,7 @@ exports.createProduct = (req, res) => {
     //restrictions on field
     const { name, description, price, category, stock } = fields;
     if (!name || !description || !price || !category || !stock) {
-      res.status(400).json({
+      return res.status(400).json({
         error: "Please fill out the all fields",
       });
     }
@@ -58,7 +58,7 @@ exports.createProduct = (req, res) => {
           error: "Couldn't save Image to DB",
         });
       }
-      res.json(product);
+      return res.json(product);
     });
   });
 };
@@ -83,11 +83,11 @@ exports.deleteProduct = (req, res) => {
   let product = req.product;
   product.remove((err, deletedProduct) => {
     if (err) {
-      res.status(400).json({
+      return res.status(400).json({
         error: "Failed to delete the product",
       });
     }
-    res.json({
+    return res.json({
       message: "Product deleted successfully",
       deletedProduct,
     });
@@ -129,7 +129,7 @@ exports.updateProduct = (req, res) => {
           error: "Couldn't update the product",
         });
       }
-      res.json(product);
+      return res.json(product);
     });
   });
 };
@@ -150,7 +150,7 @@ exports.getAllProducts = (req, res) => {
           error: "No products found in DB",
         });
       }
-      res.json(products);
+      return res.json(products);
     });
 };
 
@@ -161,7 +161,7 @@ exports.getAllUniqueCategories = (req, res) => {
         error: "No category found",
       });
     }
-    res.json(category);
+    return res.json(category);
   });
 };
 
